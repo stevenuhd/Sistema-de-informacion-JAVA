@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="pruebadatabase"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+	
+	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+	
+	<bean id="daocapacitacion" class="cl.awakelab.spring.dao.Capacitaciondaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+		
+	<bean id="daopagos" class="cl.awakelab.spring.dao.Pagodaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>	
+	
+		
+	<bean id="daoasesorias" class="cl.awakelab.spring.dao.Asesoriasdaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>	
+	
+		
+	<bean id="daovisita" class="cl.awakelab.spring.dao.Visitadaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+		
+	<bean id="daocliente" class="cl.awakelab.spring.dao.Clientedaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+	<bean id="daoprofesional" class="cl.awakelab.spring.dao.Profesionaldaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+	<bean id="daoadministrativo" class="cl.awakelab.spring.dao.Administrativodaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+	<bean id="daoasistente" class="cl.awakelab.spring.dao.Asistentesdaoimp">
+        <property name="template" ref="jt"></property>
+    </bean>
+
+	<bean id="daoChequeos" class="cl.awakelab.spring.dao.ChequeoVisitadaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+	<bean id="daoaccidente" class="cl.awakelab.spring.dao.Accidentedaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+	<bean id="daousuario" class="cl.awakelab.spring.dao.Usuariodaoimp">
+		<property name="template" ref="jt"></property>
+	</bean>
+	
+</beans>
